@@ -25,7 +25,7 @@ class Postfilter_Admin {
         // Enqueue React app JavaScript
         wp_enqueue_script(
             'react-app',
-            $plugin_dir_uri . 'react/build/static/js/main.3d1a8650.js',
+            $plugin_dir_uri . 'assets/js/main.app.js',
             array(), // Dependencies (if any)
             '1.0',   // Version number
             true     // Load script in footer
@@ -34,7 +34,14 @@ class Postfilter_Admin {
         // Enqueue React app CSS
         wp_enqueue_style(
             'react-app-style',
-            $plugin_dir_uri . 'react/build/static/css/main.f855e6bc.css',
+            $plugin_dir_uri . 'assets/css/main.app.css',
+            array(), // Dependencies (if any)
+            '1.0'    // Version number
+        );
+        // Enqueue React app CSS
+        wp_enqueue_style(
+            'flt-plugin-style',
+            $plugin_dir_uri . 'assets/css/style.css',
             array(), // Dependencies (if any)
             '1.0'    // Version number
         );
