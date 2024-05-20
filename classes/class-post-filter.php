@@ -14,8 +14,16 @@ class Postfilter_Admin {
     function __construct() {		
         add_action( 'admin_menu', array( $this, 'wp_post_filter_menu' ) );
         add_action( 'admin_enqueue_scripts', array( $this,'enqueue_react_app_scripts' ) );
+        add_filter( 'site_transient_update_plugins', array($this,'filter_plugin_updates') );
+        
     }
 
+    public function filter_plugin_updates( $value ) {
+        // var_dump($value);
+        // die();
+        unset( $value->response['post-filter/post-filter.php'] );
+        return $value;
+    }
 
     public function enqueue_react_app_scripts() {
         // Get the directory URI of the plugin
@@ -30,7 +38,13 @@ class Postfilter_Admin {
             '1.0',   // Version number
             true     // Load script in footer
         );
-    
+        wp_enqueue_script(
+            'react-app-chunk',
+            $plugin_dir_uri . 'assets/js/main.app.chunk.js',
+            array(), // Dependencies (if any)
+            '1.0',   // Version number
+            true     // Load script in footer
+        );
         // Enqueue React app CSS
         wp_enqueue_style(
             'react-app-style',
