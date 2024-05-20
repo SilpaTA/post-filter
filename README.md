@@ -5,7 +5,7 @@
 
 ## Overview
 
-This plugin fetches all posts from a WordPress site and filters them based on specific conditions.
+This plugin fetches all posts from a WordPress site and filters them based on specific conditions. The filtering part done on react.
 
 ## Features
 
@@ -27,4 +27,9 @@ https://github.com/SilpaTA/post-filter
 ```bash
 Upload the entire post-filter folder to the /wp-content/plugins/ directory.
 Activate the plugin through the Plugins screen (Plugins > Installed Plugins)
+```
+## React Source Code
+
+```bash
+https://github.com/SilpaTA/json-data-filter-reactapp
 ```
